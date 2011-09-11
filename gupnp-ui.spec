@@ -92,6 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{!?with_apidocs:%{__rm} -r $RPM_BUILD_ROOT%{_gtkdocdir}}
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgupnp-ui-1.0.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,7 +110,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgupnp-ui-1.0.so
-%{_libdir}/libgupnp-ui-1.0.la
 %{_includedir}/gupnp-ui-1.0
 %{_pkgconfigdir}/gupnp-ui-1.0.pc
 
