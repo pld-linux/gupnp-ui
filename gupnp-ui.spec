@@ -9,8 +9,7 @@ Version:	0.1.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-#Source0Download: http://gupnp.org/download
-Source0:	http://gupnp.org/sites/all/files/sources/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gupnp-ui/0.1/%{name}-%{version}.tar.gz
 # Source0-md5:	5ca6b3f6740d0295066b0b533289aa4c
 URL:		http://gupnp.org/
 BuildRequires:	autoconf >= 2.53
