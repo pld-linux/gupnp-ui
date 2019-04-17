@@ -1,0 +1,33 @@
+--- gupnp-ui-0.1.1/configure.ac.orig	2008-09-27 20:41:49.000000000 +0200
++++ gupnp-ui-0.1.1/configure.ac	2019-04-17 11:26:52.301643276 +0200
+@@ -10,7 +10,7 @@
+ AC_STDC_HEADERS
+ AC_PROG_LIBTOOL
+ 
+-PKG_CHECK_MODULES(LIBGUPNP_UI, gupnp-1.0 >= 0.3 gtk+-2.0)
++PKG_CHECK_MODULES(LIBGUPNP_UI, gupnp-1.2 >= 0.3 gssdp-1.2 gtk+-2.0)
+ 
+ PKG_CHECK_MODULES(GTHREAD, gthread-2.0)
+ 
+--- gupnp-ui-0.1.1/gupnp-ui-1.0.pc.in.orig	2007-08-15 09:49:00.000000000 +0200
++++ gupnp-ui-0.1.1/gupnp-ui-1.0.pc.in	2019-04-17 11:27:08.411556002 +0200
+@@ -8,4 +8,4 @@
+ Version: @VERSION@
+ Libs: -L${libdir} -lgupnp-ui-1.0
+ Cflags: -I${includedir}/gupnp-ui-1.0
+-Requires: gupnp-1.0 gtk+-2.0
++Requires: gupnp-1.2 gtk+-2.0
+--- gupnp-ui-0.1.1/tests/test-view.c.orig	2008-09-27 19:40:21.000000000 +0200
++++ gupnp-ui-0.1.1/tests/test-view.c	2019-04-17 11:32:25.969835641 +0200
+@@ -43,9 +43,9 @@
+ 
+         /* Create UPnP-related objects */
+         error = NULL;
+-        context = gupnp_context_new (NULL, NULL, 0, &error);
++        context = gupnp_context_new (NULL, 0, &error);
+         if (error) {
+-                g_error (error->message);
++                g_error ("%s", error->message);
+                 g_error_free (error);
+ 
+                 return 1;

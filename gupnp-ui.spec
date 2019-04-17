@@ -6,21 +6,22 @@ Summary:	GUPnP-UI - a collection of GTK+ widgets on top of GUPnP
 Summary(pl.UTF-8):	GUPnP-UI - widgety GTK+ dla biblioteki GUPnP
 Name:		gupnp-ui
 Version:	0.1.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gupnp-ui/0.1/%{name}-%{version}.tar.gz
 # Source0-md5:	5ca6b3f6740d0295066b0b533289aa4c
+Patch0:		%{name}-gupnp.patch
 URL:		http://gupnp.org/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	gtk+2-devel >= 2.0
-BuildRequires:	gupnp-devel >= 0.3
+BuildRequires:	gupnp-devel >= 1.2
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	gupnp >= 0.3
+Requires:	gupnp >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +37,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GUPnP-UI
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel >= 2.0
-Requires:	gupnp-devel >= 0.3
+Requires:	gupnp-devel >= 1.2
 
 %description devel
 Header files for GUPnP-UI library.
@@ -70,6 +71,7 @@ Dokumentacja API biblioteki GUPnP-UI.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
